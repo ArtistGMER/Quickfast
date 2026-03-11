@@ -793,6 +793,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   breakfastFood: {fileID: 0}
+  breakfastFoodList:
+  - {fileID: 478334830}
+  - {fileID: 439576447}
+  - {fileID: 1855324621}
+  - {fileID: 513387437}
+  - {fileID: 135382219}
+  Egg: {fileID: 478334830}
+  foodOnPlate: 0
 --- !u!1 &1188977870
 GameObject:
   m_ObjectHideFlags: 0

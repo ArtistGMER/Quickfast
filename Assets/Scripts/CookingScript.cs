@@ -33,10 +33,7 @@ public class CookingScript : MonoBehaviour
             inPan = true;
             isCooking = true;
         }
-        if (collision.gameObject.CompareTag("Plate"))
-        {
-            Debug.Log("Hi");
-        }
+       
     }
     void Update()
     {

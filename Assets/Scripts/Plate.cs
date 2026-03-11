@@ -1,24 +1,22 @@
+using NUnit.Framework;
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Plate : MonoBehaviour
 {
     public GameObject breakfastFood;
-    
-    //public GameObject Egg;
-    //public GameObject Toast;
-    //public GameObject Pancake;
-    //public GameObject Sausage;
-    //public GameObject Bacon;
-
-  
-    //public bool foodOnPlate = false;
+    public List<GameObject> breakfastFoodList = new List<GameObject>();
+    public bool foodOnPlate = false;
 
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.CompareTag("Food"))
     //    {
-    //        foodOnPlate = true;
-    //        Debug.Log("hasfoodlol");
+    //        if (!foodOnPlate.Contains(other.gameObject))
+    //        {
+    //            foodOnPlate.Add(other.gameObject);
+    //            foodOnPlate = true;
+    //            Debug.Log(other.name + "hasfoodlol");
+    //        }
     //    }
     //}
     //private void OnTriggerExit(Collider other)
