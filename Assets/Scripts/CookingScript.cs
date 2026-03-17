@@ -8,9 +8,11 @@ public class CookingScript : MonoBehaviour
     public SpriteRenderer sr;
     public Sprite CookedArt; // declares and referes to the sprite !
     public Sprite BurntArt;
+    public Sprite OnPanArt;
     public bool isCooking = false;
     public bool inPan = false;
     public bool undercooked = false;
+    //public GameObject EggPrefab;
 
 
     public float CookingTimer = 0f;
@@ -23,17 +25,24 @@ public class CookingScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Plate"))
-        {
-            Debug.Log("plate");
-
-        }
+        
         if (collision.gameObject.CompareTag("Pan"))
         {
             inPan = true;
             isCooking = true;
         }
        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Pan"))
+        {
+            inPan = false;
+            isCooking = false;
+        }
+
     }
     void Update()
     {
@@ -42,7 +51,10 @@ public class CookingScript : MonoBehaviour
             CookingTimer += Time.deltaTime;
         }
 
-        if (CookingTimer >= 30f)
+
+
+       
+        if (CookingTimer >= 20f)
         {
             if (!burnt)
             {
@@ -52,7 +64,7 @@ public class CookingScript : MonoBehaviour
             }
         }
 
-        else if (CookingTimer >= 20f)
+        else if (CookingTimer >= 10f)
         {
             if (!cooked)
             {
@@ -61,18 +73,17 @@ public class CookingScript : MonoBehaviour
                 Debug.Log("COOKED");
             }
         }
-        else if (CookingTimer >= 10f)
+        else if (CookingTimer >= 5f)
         {
             undercooked = true;
         }
+        else if (CookingTimer >= 0.1f)
+        {
+            sr.sprite = OnPanArt;
+            inPan = true;
+
+        }
     }
-
-
-
-    //void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    collision.gameObject.SendMessage("SetCookingBool", false);
-    //}
 
     
 }
