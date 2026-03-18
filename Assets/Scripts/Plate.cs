@@ -12,6 +12,9 @@ public class Plate : MonoBehaviour
     public int OrderRule = 0;
     public TextMeshProUGUI MenuText;
     public TextMeshProUGUI ScoreText;
+    public Timer Timer;
+    public float AddedTime = 10f;
+    public float RemovedTime = -10f;
 
     private void Start()
     {
@@ -145,8 +148,8 @@ public class Plate : MonoBehaviour
             }
         }
         //-------------- BATCH OF ORDERS ----------
-
-        if (OrderRule == 0 && EggCount == 1 && PancakeCount == 1)           
+        Debug.Log("order: "+PancakeCount+"/"+EggCount+ "/" + BaconCount + "/" + SausageCount + "/" + ToastCount + "/" + OrderRule);
+        if (OrderRule == 0 && EggCount == 1 && PancakeCount == 1 )           
         {
             Debug.Log("Order0Done");
             foreach (ClickDrag drag in list.ToArray()) // the array is making a copy of the original list which prevents the og list from being destroyed
@@ -154,6 +157,8 @@ public class Plate : MonoBehaviour
                 Destroy(drag.gameObject);
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
+            
         }
         else if (OrderRule == 1 && EggCount == 2)
         {
@@ -163,6 +168,7 @@ public class Plate : MonoBehaviour
                 Destroy(drag.gameObject);
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
 
         else if (OrderRule == 2 && EggCount == 1 && ToastCount == 1)
@@ -173,6 +179,7 @@ public class Plate : MonoBehaviour
                 Destroy(drag.gameObject);
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 3 && EggCount == 1 && BaconCount == 1)
         {
@@ -182,6 +189,7 @@ public class Plate : MonoBehaviour
                 Destroy(drag.gameObject);
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 4 && EggCount == 1 && SausageCount == 1)
         {
@@ -292,8 +300,11 @@ public class Plate : MonoBehaviour
                     {
                     Destroy(drag.gameObject);
                     Debug.Log("LOSE");
+                    //Score += -2;
+                    Timer.OrderAddTime(RemovedTime);
                 }
-                
+
+
             }
         }
         ScoreText.text = "Score:" + Score;

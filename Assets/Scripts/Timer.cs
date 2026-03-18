@@ -43,6 +43,10 @@ public class Timer : MonoBehaviour
     TimerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
 }
+    public void OrderAddTime(float amount)
+    {
+        remainingTime += amount;
+    }
      
      
 }
