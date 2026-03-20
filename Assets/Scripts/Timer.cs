@@ -11,29 +11,30 @@ public class Timer : MonoBehaviour
     {
       
         }
-        
 
-     void Update()
-{
-    if (remainingTime > 0)
+
+    void Update()
     {
-        remainingTime -= Time.deltaTime;
-        UpdateTimerDisplay(remainingTime);
-    }
-
-    else
-    {
-        remainingTime = 0;
-        TimerDisplay.text = "00:00";
-    }
-
-        if (remainingTime < 0)
+        if (remainingTime > 0)
         {
+            remainingTime -= Time.deltaTime;
+            UpdateTimerDisplay(remainingTime);
+            
+        }
 
-            Debug.Log("TIME UP");
+
+        else
+        {
+            remainingTime = 0;
+            TimerDisplay.text = "00:00";
 
         }
 
+        if (remainingTime < 0)
+        {
+            Debug.Log("TIMES UP");
+
+        }
     }
 
     void UpdateTimerDisplay(float time)
@@ -46,6 +47,8 @@ public class Timer : MonoBehaviour
     public void OrderAddTime(float amount)
     {
         remainingTime += amount;
+        remainingTime = MathF.Max(0, remainingTime);
+        Debug.Log("Time Added" + remainingTime);
     }
      
      

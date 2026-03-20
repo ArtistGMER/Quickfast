@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plate
   list: []
+  cook: {fileID: 0}
   foodOnPlate: {fileID: 0}
   Score: 0
   ServeButton: {fileID: 0}
@@ -686,8 +687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDrag
   foodType: 
-  cooked: 0
-  burnt: 0
   EggPrefab: {fileID: 6357995069266008772, guid: cb3dcfde8349d8046817f9ea88318f16, type: 3}
   BaconPrefab: {fileID: 1719667772202173194, guid: 6131cfd42f0041d479cd3243eb8c78b5, type: 3}
   SausagePrefab: {fileID: 1386788393883706624, guid: fe82e6bee0cf289419a08ee880539c33, type: 3}
@@ -912,7 +911,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3.31
+  m_Radius: 4
 --- !u!114 &974080673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,6 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   list: []
+  cook: {fileID: 1253703927}
   foodOnPlate: {fileID: 0}
   Score: 0
   ServeButton: {fileID: 1492830175}

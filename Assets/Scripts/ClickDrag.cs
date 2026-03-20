@@ -5,8 +5,6 @@ public class ClickDrag : MonoBehaviour
     private Vector3 mousePosition;
     private Vector3 startPosition;
     public string foodType;
-    public bool cooked;
-    public bool burnt;
     private Camera mainCamera;
     private bool isDragging;
     private bool SpawnNewFood;

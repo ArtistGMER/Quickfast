@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Plate : MonoBehaviour
 {
     public List<ClickDrag> list = new List<ClickDrag>();
+    public CookingScript cook;
     public GameObject foodOnPlate;
     public int Score = 0;
     public GameObject ServeButton;
@@ -126,23 +127,24 @@ public class Plate : MonoBehaviour
         
         foreach (ClickDrag drag in list)
         {
-            if (drag.foodType == "Egg" && drag.cooked)
+            CookingScript cook = drag.GetComponent<CookingScript>();
+            if (drag.foodType == "Egg" && cook !=null && cook.cooked)
             {
                 EggCount += 1;
             }
-            if (drag.foodType == "Pancake" && drag.cooked)
+            if (drag.foodType == "Pancake" && cook !=null && cook.cooked)
             {
                 PancakeCount += 1;   
             }
-            if (drag.foodType == "Sausage" && drag.cooked)
+            if (drag.foodType == "Sausage" && cook !=null && cook.cooked)
             {
                 SausageCount += 1;
             }
-            if (drag.foodType == "Toast" && drag.cooked)
+            if (drag.foodType == "Toast" && cook !=null && cook.cooked)
             {
                 ToastCount += 1;
             }
-            if (drag.foodType == "Bacon" && drag.cooked)
+            if (drag.foodType == "Bacon" && cook !=null && cook.cooked)
             {
                 BaconCount += 1;
             }
@@ -155,6 +157,7 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray()) // the array is making a copy of the original list which prevents the og list from being destroyed
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
             Timer.OrderAddTime(AddedTime);
@@ -166,6 +169,7 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray()) 
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
             Timer.OrderAddTime(AddedTime);
@@ -177,6 +181,7 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
             Timer.OrderAddTime(AddedTime);
@@ -187,6 +192,7 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
             Timer.OrderAddTime(AddedTime);
@@ -197,8 +203,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 5 && PancakeCount == 1 && ToastCount == 1)
         {
@@ -206,8 +214,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 6 && PancakeCount == 1 &&  BaconCount == 1)
         {
@@ -215,8 +225,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 7 && PancakeCount == 1 && SausageCount == 1)
         {
@@ -224,8 +236,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 8 && PancakeCount == 2)
         {
@@ -233,8 +247,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 9 && BaconCount == 1 && ToastCount == 1)
         {
@@ -242,8 +258,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 10 && BaconCount == 1 && SausageCount == 1)
         {
@@ -251,8 +269,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 11 && BaconCount == 2)
         {
@@ -260,8 +280,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 12 && SausageCount == 1 && ToastCount == 1)
         {
@@ -269,8 +291,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 13 && SausageCount == 2)
         {
@@ -278,8 +302,10 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
         else if (OrderRule == 14 && ToastCount == 2)
         {
@@ -287,30 +313,30 @@ public class Plate : MonoBehaviour
             foreach (ClickDrag drag in list.ToArray())
             {
                 Destroy(drag.gameObject);
+                list.Clear();
             }
             Score += 2;
+            Timer.OrderAddTime(AddedTime);
         }
 
         else 
         {
-           
+            Debug.Log("LOSE");
             foreach (ClickDrag drag in list.ToArray())
             {
-                if (!drag.cooked)
+                if (cook ==null || !cook.cooked)
                     {
                     Destroy(drag.gameObject);
-                    Debug.Log("LOSE");
-                    //Score += -2;
-                    Timer.OrderAddTime(RemovedTime);
+                    list.Clear();
                 }
-
+                Score += -2;
+                //Timer.OrderAddTime(RemovedTime);
 
             }
         }
         ScoreText.text = "Score:" + Score;
         OrderGenerate();
-        //Debug.Log(EggCount);
-
+        
     }
 
 } 
