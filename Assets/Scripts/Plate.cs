@@ -78,7 +78,7 @@ public class Plate : MonoBehaviour
         }
         else if (OrderRule == 13)
         {
-            MenuText.text = "CURRENT \nORDER:" + "\n Sausage \n Fanatic" + "\n 2 Sausages ";
+            MenuText.text = "CURRENT \nORDER:" + "\n Sausage \n Fanatic" + "\n 2 Sausage";
         }
         else if (OrderRule == 14)
         {
@@ -330,7 +330,7 @@ public class Plate : MonoBehaviour
                     list.Clear();
                 }
                 Score += -2;
-                //Timer.OrderAddTime(RemovedTime);
+                Timer.OrderAddTime(RemovedTime);
 
             }
         }
