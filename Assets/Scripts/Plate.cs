@@ -9,6 +9,7 @@ public class Plate : MonoBehaviour
     public CookingScript cook;
     public GameObject foodOnPlate;
     public int Score = 0;
+    public static int HighScore = 0;
     public GameObject ServeButton;
     public int OrderRule = 0;
     public TextMeshProUGUI MenuText;
@@ -335,28 +336,10 @@ public class Plate : MonoBehaviour
             }
         }
         ScoreText.text = "Score:" + Score;
+        HighScore = Score;
         OrderGenerate();
         
     }
 
 } 
 
-//public class Recipe
-//{
-//    public string Name;
-//    public int Eggs;
-//    public int Pancake;
-//    public int Sausages;
-//    public int Toast;
-//    public int Bacon;
-//    public List<OrderScript> Orders = new List<OrderScript>();
-
-//    public void OrderList()
-//    {
-//        OrderScript b = other.gameObject.GetComponent<OrderScript>();
-//    }
-
-
-
-
-//}

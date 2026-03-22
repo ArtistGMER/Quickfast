@@ -7,6 +7,9 @@ public class Timer : MonoBehaviour
 {
     public float remainingTime = 90f;
     public TextMeshProUGUI TimerDisplay;
+    public GameOverScreen GameOverScreen;
+    public Plate HighScore;
+
     void Start()
     {
       
@@ -33,6 +36,8 @@ public class Timer : MonoBehaviour
         if (remainingTime < 0)
         {
             Debug.Log("TIMES UP");
+            int finalScore = Plate.HighScore;
+            GameOverScreen.SetUp(finalScore);
 
         }
     }

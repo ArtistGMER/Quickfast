@@ -12,6 +12,7 @@ public class CookingScript : MonoBehaviour
     public bool isCooking = false;
     public bool inPan = false;
     public bool undercooked = false;
+    
     //public GameObject EggPrefab;
 
 
@@ -21,6 +22,7 @@ public class CookingScript : MonoBehaviour
     {
         cooked = false;
         sr = GetComponent<SpriteRenderer>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +32,7 @@ public class CookingScript : MonoBehaviour
         {
             inPan = true;
             isCooking = true;
+            
         }
        
     }
